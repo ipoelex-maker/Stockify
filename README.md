@@ -1,66 +1,170 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Stockify — Sistem Manajemen Inventori
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-10-red?style=for-the-badge&logo=laravel" />
+  <img src="https://img.shields.io/badge/PHP-8.3-blue?style=for-the-badge&logo=php" />
+  <img src="https://img.shields.io/badge/MySQL-8.0-orange?style=for-the-badge&logo=mysql" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3-38bdf8?style=for-the-badge&logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/Flowbite-UI-4ade80?style=for-the-badge" />
 </p>
 
-## About Laravel
+> Aplikasi web manajemen stok barang berbasis Laravel 10 dengan tampilan premium dark mode dan fitur lengkap untuk kebutuhan gudang.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🔐 **Autentikasi & Role** — Admin, Manajer Gudang, Staff Gudang (Spatie Permission)
+- 👥 **Manajemen User** — CRUD pengguna dan assign role
+- 📦 **Manajemen Produk** — CRUD produk dengan foto, harga beli/jual, min stok
+- 🗂️ **Kategori & Supplier** — CRUD dengan validasi lengkap
+- 📥 **Stock In & Stock Out** — Pencatatan barang masuk/keluar dengan validasi min stok
+- 📊 **Stock Opname** — Pengecekan stok fisik vs sistem dengan adjustment otomatis
+- 📋 **Laporan** — Filter per periode, export CSV, cetak PDF
+- 📥 **Import Produk** — Upload massal via CSV dengan template
+- 🔔 **Notifikasi** — Peringatan stok menipis otomatis
+- 📊 **Dashboard** — Chart.js real-time, stats per role
+- 🌙 **OLED Dark Mode** — True black `#000000` untuk hemat baterai
+- 📱 **Mobile Responsive** — Hamburger menu & floating glass sidebar
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Teknologi
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+| Teknologi | Versi |
+|-----------|-------|
+| PHP | 8.3 |
+| Laravel | 10 |
+| MySQL | 8.0 |
+| Tailwind CSS | 3 |
+| Flowbite | 2 |
+| Chart.js | 4.4 |
+| Spatie Permission | 6 |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## ⚙️ Cara Instalasi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Prasyarat
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- MySQL
+- Git
 
-### Premium Partners
+### Langkah-langkah
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+**1. Clone repository**
+```bash
+git clone https://github.com/ipoelex-maker/Stockify.git
+cd Stockify
+```
 
-## Contributing
+**2. Install dependency PHP**
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**3. Install dependency JavaScript**
+```bash
+npm install
+```
 
-## Code of Conduct
+**4. Salin file environment**
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**5. Generate app key**
+```bash
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+**6. Konfigurasi database**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Buat database baru di phpMyAdmin atau MySQL dengan nama `stockify`, lalu edit file `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=stockify
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## License
+**7. Jalankan migration**
+```bash
+php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**8. Jalankan seeder**
+```bash
+php artisan db:seed
+```
+
+**9. Buat symlink storage**
+```bash
+php artisan storage:link
+```
+
+**10. Build assets**
+```bash
+npm run build
+```
+
+**11. Jalankan server**
+```bash
+php artisan serve
+```
+
+Buka browser dan akses: **http://127.0.0.1:8000**
+
+---
+
+## 🔑 Akun Default
+
+Setelah menjalankan seeder, gunakan akun berikut untuk login:
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@gmail.com | password |
+
+> Akun Manager dan Staff bisa dibuat melalui menu **Users** setelah login sebagai Admin.
+
+---
+
+## 📁 Struktur Role & Akses
+
+| Fitur | Admin | Manager | Staff |
+|-------|-------|---------|-------|
+| Dashboard | ✅ | ✅ | ✅ |
+| Categories | ✅ | ❌ | ❌ |
+| Suppliers | ✅ | ❌ | ❌ |
+| Users | ✅ | ❌ | ❌ |
+| Products | ✅ | ✅ | ❌ |
+| Stock In | ✅ | ✅ | ✅ |
+| Stock Out | ✅ | ✅ | ✅ |
+| Stock Opname | ✅ | ✅ | ❌ |
+| Laporan | ✅ | ✅ | ❌ |
+
+---
+
+## 📸 Screenshot
+
+> Dashboard, Login, dan halaman utama Stockify dengan tampilan OLED dark mode premium.
+
+---
+
+## 👨‍💻 Developer
+
+**Ahmad Syaeful Arif**
+- NPM: 23111100070
+- Program Studi Informatika
+- Universitas PGRI Yogyakarta
+- Kerja Praktek @ Seven INC (Magang Jogja) — 2026
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk keperluan akademik Kerja Praktek.
