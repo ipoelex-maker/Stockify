@@ -22,6 +22,26 @@
         }
         .float { animation: float 5s ease-in-out infinite; }
         .blob { animation: blob 7s ease-in-out infinite; }
+        /* OLED TRUE BLACK */
+        .dark body { background: #000000 !important; }
+        .dark .bg-gradient-to-br { background: #000000 !important; }
+        .dark [class*="bg-gray-950"],
+        .dark [class*="bg-gray-900"] { background-color: #1a1a1a !important; }
+        .dark [class*="bg-gray-800\/80"],
+        .dark [class*="bg-gray-800"] { background-color: #222222 !important; }
+        .dark input, .dark select, .dark textarea {
+            background-color: #111111 !important;
+            border-color: #3a3a3a !important;
+            color: #f5f5f5 !important;
+        }
+        /* Glass card kontras dari background hitam */
+        .dark .backdrop-blur-xl {
+            background-color: rgba(28, 28, 28, 0.95) !important;
+            border-color: rgba(255,255,255,0.12) !important;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+        }
+        .dark .fixed.inset-0 > div { opacity: 0.25 !important; }
+        .dark [class*="border-gray-700"] { border-color: #333333 !important; }
     </style>
 </head>
 
@@ -60,7 +80,6 @@
             <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-1">Selamat Datang! 👋</h2>
             <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">Masuk ke akun kamu untuk melanjutkan</p>
 
-            {{-- SESSION STATUS --}}
             @if(session('status'))
                 <div class="mb-4 px-4 py-3 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-sm font-medium">
                     {{ session('status') }}
@@ -70,11 +89,8 @@
             <form method="POST" action="{{ route('login') }}" class="space-y-5">
                 @csrf
 
-                {{-- EMAIL --}}
                 <div>
-                    <label for="email" class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
-                        Email
-                    </label>
+                    <label for="email" class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Email</label>
                     <input id="email" type="email" name="email"
                            value="{{ old('email') }}"
                            required autofocus autocomplete="username"
@@ -89,11 +105,8 @@
                     @enderror
                 </div>
 
-                {{-- PASSWORD --}}
                 <div>
-                    <label for="password" class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
-                        Password
-                    </label>
+                    <label for="password" class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">Password</label>
                     <input id="password" type="password" name="password"
                            required autocomplete="current-password"
                            placeholder="••••••••"
@@ -107,7 +120,6 @@
                     @enderror
                 </div>
 
-                {{-- REMEMBER ME --}}
                 <div class="flex items-center justify-between">
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" name="remember"
@@ -122,7 +134,6 @@
                     @endif
                 </div>
 
-                {{-- LOGIN BUTTON --}}
                 <button type="submit"
                         class="w-full py-3 rounded-xl font-bold text-white text-sm
                                bg-gradient-to-r from-blue-600 to-indigo-600
@@ -136,7 +147,6 @@
 
         </div>
 
-        {{-- REGISTER LINK --}}
         @if(Route::has('register'))
             <p class="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">
                 Belum punya akun?
@@ -149,7 +159,6 @@
 
     </div>
 
-    {{-- DARK MODE TOGGLE --}}
     <div class="fixed bottom-6 right-6 z-50">
         <button onclick="toggleTheme()"
                 class="w-11 h-11 flex items-center justify-center rounded-full shadow-xl

@@ -15,43 +15,30 @@ class Product extends Model
         'name',
         'sku',
         'stock',
+        'min_stock',
         'buy_price',
         'sell_price',
         'description',
         'image',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | RELATION CATEGORY
-    |--------------------------------------------------------------------------
-    */
-
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | RELATION SUPPLIER
-    |--------------------------------------------------------------------------
-    */
-
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
     }
-    
-    
+
     public function stockIns()
     {
-    return $this->hasMany(StockIn::class);
+        return $this->hasMany(StockIn::class);
     }
-    
-    
+
     public function stockOuts()
     {
-    return $this->hasMany(StockOut::class);
+        return $this->hasMany(StockOut::class);
     }
 }

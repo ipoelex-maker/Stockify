@@ -7,88 +7,73 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $suppliers = Supplier::latest()->get();
-
         return view('suppliers.index', compact('suppliers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('suppliers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name'  => 'required|string|max:255',
+            'phone' => 'nullable|regex:/^[0-9+\-\s()]+$/|max:20',
+            'email' => 'nullable|email|max:255',
+        ], [
+            'phone.regex' => 'Nomor telepon hanya boleh berisi angka, +, -, atau spasi.',
         ]);
 
         Supplier::create([
-            'name' => $request->name,
+            'name'    => $request->name,
             'address' => $request->address,
-            'phone' => $request->phone,
-            'email' => $request->email,
+            'phone'   => $request->phone,
+            'email'   => $request->email,
         ]);
 
         return redirect()->route('suppliers.index')
-            ->with('success', 'Supplier berhasil ditambahkan');
+            ->with('success', '✅ Supplier berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Supplier $supplier)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Supplier $supplier)
     {
         return view('suppliers.edit', compact('supplier'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Supplier $supplier)
     {
         $request->validate([
-            'name' => 'required',
+            'name'  => 'required|string|max:255',
+            'phone' => 'nullable|regex:/^[0-9+\-\s()]+$/|max:20',
+            'email' => 'nullable|email|max:255',
+        ], [
+            'phone.regex' => 'Nomor telepon hanya boleh berisi angka, +, -, atau spasi.',
         ]);
 
         $supplier->update([
-            'name' => $request->name,
+            'name'    => $request->name,
             'address' => $request->address,
-            'phone' => $request->phone,
-            'email' => $request->email,
+            'phone'   => $request->phone,
+            'email'   => $request->email,
         ]);
 
         return redirect()->route('suppliers.index')
-            ->with('success', 'Supplier berhasil diupdate');
+            ->with('success', '✅ Supplier berhasil diupdate.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Supplier $supplier)
     {
         $supplier->delete();
-
         return redirect()->route('suppliers.index')
-            ->with('success', 'Supplier berhasil dihapus');
+            ->with('success', '🗑️ Supplier berhasil dihapus.');
     }
 }

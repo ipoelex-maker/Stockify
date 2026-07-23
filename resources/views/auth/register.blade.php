@@ -22,6 +22,28 @@
         }
         .float { animation: float 5s ease-in-out infinite; }
         .blob  { animation: blob 7s ease-in-out infinite; }
+
+        /* ── OLED TRUE BLACK ── */
+        .dark body                       { background: #000000 !important; }
+        .dark .bg-gradient-to-br         { background: #000000 !important; }
+        .dark [class*="bg-gray-950"],
+        .dark [class*="bg-gray-900"]     { background-color: #1a1a1a !important; }
+        .dark [class*="bg-gray-800\/80"],
+        .dark [class*="bg-gray-800"]     { background-color: #222222 !important; }
+        .dark input, .dark select, .dark textarea {
+            background-color: #111111 !important;
+            border-color: #3a3a3a !important;
+            color: #f5f5f5 !important;
+        }
+        /* Glass card — kontras dari background hitam */
+        .dark .backdrop-blur-xl {
+            background-color: rgba(28, 28, 28, 0.95) !important;
+            border-color: rgba(255,255,255,0.12) !important;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+        }
+        /* Blob redup */
+        .dark .fixed.inset-0 > div      { opacity: 0.25 !important; }
+        .dark [class*="border-gray-700"] { border-color: #333333 !important; }
     </style>
 </head>
 

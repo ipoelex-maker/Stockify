@@ -2,7 +2,6 @@
 
     <div class="max-w-2xl mx-auto space-y-6">
 
-        {{-- HEADER --}}
         <div class="flex items-center justify-between">
             <div>
                 <h1 class="text-3xl font-black text-gray-800 dark:text-white">Tambah Supplier</h1>
@@ -15,7 +14,6 @@
             </a>
         </div>
 
-        {{-- FORM --}}
         <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8">
             <form action="{{ route('suppliers.store') }}" method="POST" class="space-y-5">
                 @csrf
@@ -41,8 +39,13 @@
                         <label class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
                             No. Telepon
                         </label>
-                        <input type="text" name="phone" value="{{ old('phone') }}"
+                        <input type="tel"
+                               name="phone"
+                               value="{{ old('phone') }}"
                                placeholder="cth: 08123456789"
+                               pattern="[0-9+\-\s()]+"
+                               title="Hanya boleh angka, +, -, atau spasi"
+                               inputmode="tel"
                                class="w-full rounded-xl border border-gray-200 dark:border-gray-600
                                       bg-white dark:bg-gray-700 text-gray-800 dark:text-white
                                       placeholder-gray-400 dark:placeholder-gray-500
